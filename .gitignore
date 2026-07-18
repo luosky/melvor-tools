@@ -1,0 +1,9 @@
+*.log
+*_log.txt
+__pycache__/
+.claude/
+.agents/
+.DS_Store
+# 临时测试脚本
+scratch/
+test_resolve.py
