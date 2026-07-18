@@ -780,7 +780,12 @@ def main():
                             stats[pending_item_name] = {"times": 0, "amount": 0}
                         stats[pending_item_name]["times"] += 1
                         stats[pending_item_name]["amount"] += pending_item_value
-                        log(f"【累计统计】{pending_item_name} -> 本次: {pending_item_value} 个 | 累计: {stats[pending_item_name]['amount']} 个 (共 {stats[pending_item_name]['times']} 次)")
+                        
+                        log(f"【本次获得】{pending_item_name} x {pending_item_value}")
+                        log("【累计统计】")
+                        for name, s in stats.items():
+                            log(f"  - {name}: 累计 {s['amount']} 个 (共 {s['times']} 次)")
+                            
                         pending_item_name = None
                         pending_item_value = 0
 
