@@ -10,12 +10,12 @@ Melvor Idle 辅助工具集。
 
 ## 包含工具
 
-### 1. Melvor Idle 宝箱自动开启脚本 (`melvor_chest_bot_v2.py`)
+### 1. Melvor Idle 宝箱自动开启脚本 (`melvor_chest_bot.py`)
 严格每次只开一个宝箱，根据要求自动进行 Reroll 直到满足特定条件才 Consent 接受。支持在线动态解析宝箱中文名为英文图片资源名称。
 
 #### 用法
 ```bash
-python melvor_chest_bot_v2.py <宝箱名字> <目标1> [目标2] ...
+python melvor_chest_bot.py <宝箱名字> <目标1> [目标2] ...
 ```
 
 #### 目标参数格式说明
@@ -26,12 +26,12 @@ python melvor_chest_bot_v2.py <宝箱名字> <目标1> [目标2] ...
 #### 示例
 - **单目标数量限制**（只匹配物品和最低数量）：
   ```bash
-  python melvor_chest_bot_v2.py 深渊钓鱼宝箱 虚空之心:3
+  python melvor_chest_bot.py 深渊钓鱼宝箱 虚空之心:3
   ```
   *(注：当开出 3 个或更少虚空之心时会自动 Reroll，开出 4 个及以上才接受并保存)*
 
 - **多目标与任意物品数量限制**：
   ```bash
-  python melvor_chest_bot_v2.py 灵火矿脉荚 灰烬:190 _:200
+  python melvor_chest_bot.py 灵火矿脉荚 灰烬:190 _:200
   ```
   *(注：该示例会 Reroll 直到开出“灰烬”且数量大于 190 个，**或者**开出任意物品且数量大于 200 个时才接受并停止)*

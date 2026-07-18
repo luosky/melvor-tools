@@ -2,11 +2,11 @@
 """
 Melvor Idle 宝箱自动开启脚本
 严格每次只开一个宝箱，reroll直到满足条件才Consent
-用法: python melvor_chest_bot_v2.py <宝箱名字> <目标1> [目标2] [目标3] ...
+用法: python melvor_chest_bot.py <宝箱名字> <目标1> [目标2] [目标3] ...
 目标格式: 奖品名字:最低数量 或 奖品名字（只要匹配名字）或 _:最低数量（只看数量）
-示例: python melvor_chest_bot_v2.py 深渊钓鱼宝箱 虚空之心:3
-      python melvor_chest_bot_v2.py 深渊钓鱼宝箱 虚空之心:3 灰烬:190
-      python melvor_chest_bot_v2.py 灵火矿脉荚 灰烬:190 _:200
+示例: python melvor_chest_bot.py 深渊钓鱼宝箱 虚空之心:3
+      python melvor_chest_bot.py 深渊钓鱼宝箱 虚空之心:3 灰烬:190
+      python melvor_chest_bot.py 灵火矿脉荚 灰烬:190 _:200
 """
 
 import subprocess
@@ -567,11 +567,11 @@ def wake_up_page():
 
 def main():
     if len(sys.argv) < 3:
-        print("用法: python melvor_chest_bot_v2.py <宝箱名字> <目标1> [目标2] ...")
+        print("用法: python melvor_chest_bot.py <宝箱名字> <目标1> [目标2] ...")
         print("目标格式: 奖品名字:最低数量 或 奖品名字 或 _:最低数量")
-        print("示例: python melvor_chest_bot_v2.py 深渊钓鱼宝箱 虚空之心:3")
-        print("      python melvor_chest_bot_v2.py 深渊钓鱼宝箱 虚空之心:3 灰烬:190")
-        print("      python melvor_chest_bot_v2.py 灵火矿脉荚 灰烬:190 _:200")
+        print("示例: python melvor_chest_bot.py 深渊钓鱼宝箱 虚空之心:3")
+        print("      python melvor_chest_bot.py 深渊钓鱼宝箱 虚空之心:3 灰烬:190")
+        print("      python melvor_chest_bot.py 灵火矿脉荚 灰烬:190 _:200")
         sys.exit(1)
 
     chest_name = sys.argv[1]
