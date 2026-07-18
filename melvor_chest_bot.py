@@ -596,6 +596,10 @@ def main():
         print("[错误] 至少需要一个目标")
         sys.exit(1)
 
+    stats = {}
+    pending_item_name = None
+    pending_item_value = 0
+
     chest_count = 0
     total_rerolls = 0
     consecutive_errors = 0
@@ -705,6 +709,8 @@ def main():
 
                     if matched:
                         log(f">>> 结果 {value} {itemName} {match_reason}! 点击 Consent...")
+                        pending_item_name = itemName
+                        pending_item_value = value
                         click_consent()
                         time.sleep(1.0)
                         # 验证是否进入下一状态
@@ -726,6 +732,8 @@ def main():
                             elif not count_ok:
                                 reasons.append(f"数量{value}<={t['count']}")
                         # log(f"结果 {value} {itemName} 不满足({'; '.join(reasons)})，点击 Reroll...")
+                        pending_item_name = None
+                        pending_item_value = 0
                         click_reroll()
                         total_rerolls += 1
                         time.sleep(0.5)
@@ -767,6 +775,15 @@ def main():
                             time.sleep(10)
                             continue
                     
+                    if pending_item_name:
+                        if pending_item_name not in stats:
+                            stats[pending_item_name] = {"times": 0, "amount": 0}
+                        stats[pending_item_name]["times"] += 1
+                        stats[pending_item_name]["amount"] += pending_item_value
+                        log(f"【累计统计】{pending_item_name} -> 本次: {pending_item_value} 个 | 累计: {stats[pending_item_name]['amount']} 个 (共 {stats[pending_item_name]['times']} 次)")
+                        pending_item_name = None
+                        pending_item_value = 0
+
                     chest_count += 1
                     log(f"=== 已完成第 {chest_count} 个宝箱 (总reroll次数: {total_rerolls}) ===")
                     time.sleep(0.5)
