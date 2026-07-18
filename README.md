@@ -2,6 +2,12 @@
 
 Melvor Idle 辅助工具集。
 
+## 依赖说明 (Dependencies)
+
+本项目正常运行需要依赖 **kimi 的 web-bridge**：
+- 脚本会自动检测并尝试启动 `kimi-webbridge` 后台服务（默认寻找路径为 `~/.kimi-webbridge/bin/kimi-webbridge`）。
+- 运行时需要通过 webbridge 将 Session（默认为 `melvor-chrome`）绑定至 Melvor Idle 游戏标签页（游戏地址：`https://melvoridle.com/index_game.php`）。
+
 ## 包含工具
 
 ### 1. Melvor Idle 宝箱自动开启脚本 (`melvor_chest_bot_v2.py`)
